@@ -23,6 +23,7 @@ body {
 .square {
   width: 100px;
   height: 100px;
+  padding: 10px;
   background-color: #1465bb;
   border: 2px solid black;
   display: inline-block;
@@ -59,3 +60,20 @@ body {
   left: 0;
   right: 0;
 }
+
+.gameFinished{
+  position: relative;
+}
+
+.gameFinished::after{
+  position: absolute;
+  content: "\1F47D";
+  font-size: 50px;
+  line-height: 100px;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+
+}
+

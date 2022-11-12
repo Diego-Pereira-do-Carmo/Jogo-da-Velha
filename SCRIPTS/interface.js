@@ -14,7 +14,13 @@ function handleClick(event) {
   if (handleMove(position)) {
 
     setTimeout(() => {
-      alert("O jogo Acabou - O Jogador " + (playerTime + 1) + " Foi o Vencedor");
+      let playAgain = confirm("O jogo Acabou \nO Jogador " + (playerTime + 1) + " Foi o Vencedor \n\n\n Novo Jogo?");
+      if (playAgain == true) {
+        location.reload();
+      } else {
+        gameFinished();
+
+      }
     }, 10);
 
   };
@@ -22,8 +28,20 @@ function handleClick(event) {
   updateSquare(position);
 }
 
-function updateSquare(position){
+function updateSquare(position) {
   let square = document.getElementById(position.toString());
   let symbol = board[position];
   square.innerHTML = `<div class='${symbol}'></div>`
 }
+
+
+function gameFinished() {
+  let squares = document.querySelectorAll(".square");
+
+  squares.forEach((square) => {
+    square.innerHTML = `<div class = gameFinished></div>`
+    
+  })
+}
+
+// square.innerHTML = `<div class='${symbols[playerTime]}'></div>`
