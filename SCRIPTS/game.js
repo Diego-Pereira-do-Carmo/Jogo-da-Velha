@@ -13,7 +13,6 @@ let winStates = [
   [2, 4, 6],
 ]
 
-
 function handleMove(position) {
 
   if (gameOver) {

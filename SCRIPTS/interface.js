@@ -26,6 +26,7 @@ function handleClick(event) {
   };
 
   updateSquare(position);
+  draw();
 }
 
 function updateSquare(position) {
@@ -40,8 +41,32 @@ function gameFinished() {
 
   squares.forEach((square) => {
     square.innerHTML = `<div class = gameFinished></div>`
-    
+
   })
 }
 
-// square.innerHTML = `<div class='${symbols[playerTime]}'></div>`
+
+function draw() {
+
+  let caseOfDraw = [];
+
+  for (let i = 0; i < board.length; i++) {
+    if (board[i] != '' && gameOver == false) {
+      caseOfDraw.push(board[i]);
+    }
+  }
+
+  if (caseOfDraw.length == 9) {
+    console.log(caseOfDraw);
+    setTimeout(() => {
+      let playAgain = confirm("O jogo Acabou \nDeu Empate! \n\n\n Novo Jogo?");
+      if (playAgain == true) {
+        location.reload();
+      } else {
+        gameFinished();
+
+      }
+    }, 10)
+  }
+}
+
