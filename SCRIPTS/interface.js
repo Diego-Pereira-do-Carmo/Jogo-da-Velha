@@ -31,22 +31,18 @@ function updateSquare(position) {
 }
 
 function draw() {
+  let drawStates = board.every(checkDraw);
 
-  let caseOfDraw = [];
-
-  for (let i = 0; i < board.length; i++) {
-    if (board[i] != '' && gameOver == false) {
-      caseOfDraw.push(board[i]);
-    }
-  }
-
-  if (caseOfDraw.length == 9) {
+  if (drawStates == true) {
     winnerMessage.style.display = "flex";
     winnerMessageTxt.innerHTML = `<p class="winnnerMessageTxt">Deu Empate!</p>`;
   }
 }
 
+function checkDraw(element){
+  return element != '';
+}
+
 function restart(){
   location.reload();
 }
-
