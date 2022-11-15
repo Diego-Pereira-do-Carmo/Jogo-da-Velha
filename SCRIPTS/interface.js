@@ -1,3 +1,7 @@
+let winnerMessage = document.querySelector(".winnerMessage");
+let winnerMessageTxt = document.querySelector(".winnerMessageTxt");
+
+
 document.addEventListener('DOMContentLoaded', () => {
   let squares = document.querySelectorAll(".square");
 
@@ -12,17 +16,8 @@ function handleClick(event) {
   let position = square.id;
 
   if (handleMove(position)) {
-
-    setTimeout(() => {
-      let playAgain = confirm("O jogo Acabou \nO Jogador " + (playerTime + 1) + " Foi o Vencedor \n\n\n Novo Jogo?");
-      if (playAgain == true) {
-        location.reload();
-      } else {
-        gameFinished();
-
-      }
-    }, 10);
-
+    winnerMessage.style.display = "flex";
+    winnerMessageTxt.innerHTML = `<p class="winnnerMessageTxt">O Jogador ${(playerTime + 1)} Foi o Vencedor</p>`;
   };
 
   updateSquare(position);
@@ -35,17 +30,6 @@ function updateSquare(position) {
   square.innerHTML = `<div class='${symbol}'></div>`
 }
 
-
-function gameFinished() {
-  let squares = document.querySelectorAll(".square");
-
-  squares.forEach((square) => {
-    square.innerHTML = `<div class = gameFinished></div>`
-
-  })
-}
-
-
 function draw() {
 
   let caseOfDraw = [];
@@ -57,16 +41,12 @@ function draw() {
   }
 
   if (caseOfDraw.length == 9) {
-    console.log(caseOfDraw);
-    setTimeout(() => {
-      let playAgain = confirm("O jogo Acabou \nDeu Empate! \n\n\n Novo Jogo?");
-      if (playAgain == true) {
-        location.reload();
-      } else {
-        gameFinished();
-
-      }
-    }, 10)
+    winnerMessage.style.display = "flex";
+    winnerMessageTxt.innerHTML = `<p class="winnnerMessageTxt">Deu Empate!</p>`;
   }
+}
+
+function restart(){
+  location.reload;
 }
 
