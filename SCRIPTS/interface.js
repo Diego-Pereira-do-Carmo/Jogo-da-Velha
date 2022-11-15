@@ -47,6 +47,6 @@ function draw() {
 }
 
 function restart(){
-  location.reload;
+  location.reload();
 }
 

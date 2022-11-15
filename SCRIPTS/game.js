@@ -15,9 +15,9 @@ let winStates = [
 
 function handleMove(position) {
 
-  // if (gameOver) {
-  //   return;
-  // }
+  if (gameOver) {
+    return;
+  }
 
   if (board[position] == '') {
     board[position] = symbols[playerTime];
