@@ -64,10 +64,9 @@ function scorePoint(isWin) {
   if (isWin() === true) {
     if (playerTime == 0) {
       scoreBoard.player1 += 1;
-    } else {console.log("ponto inicial 2 " +scoreBoard.player2);
+    } else {
       scoreBoard.player2 += 1;
     }
   }
   localStorage.setItem('score', JSON.stringify(scoreBoard));
-  console.log(scoreBoard)
 }

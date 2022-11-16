@@ -21,6 +21,20 @@ document.addEventListener('DOMContentLoaded', () => {
 
 })
 
+let choseX = document.querySelector(".choseX");
+let choseO = document.querySelector(".choseO");
+
+console.log(choseX);
+console.log(choseO);
+
+
+
+function choosePlayer(choosePlayer) {
+
+
+
+}
+
 
 function handleClick(event) {
   let square = event.target;
