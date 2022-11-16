@@ -13,6 +13,11 @@ let winStates = [
   [2, 4, 6],
 ]
 
+let scoreBoard = {
+  player1: '',
+  player2: ''
+};
+
 function handleMove(position) {
 
   if (gameOver) {
@@ -30,6 +35,8 @@ function handleMove(position) {
     }
   }
 
+  scorePoint(isWin);
+  updateScore(playerTime);
   return gameOver;
 }
 
@@ -51,4 +58,14 @@ function isWin() {
   }
 
   return false;
+}
+
+function scorePoint(isWin) {
+  if (isWin() === true) {
+    if (playerTime == 0) {
+      scoreBoard.player1 = scoreBoard.player1 + 1;
+    } else {
+      scoreBoard.player2 = scoreBoard.player2 + 1;
+    }
+  }
 }

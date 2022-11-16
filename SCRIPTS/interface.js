@@ -1,5 +1,7 @@
 let winnerMessage = document.querySelector(".winnerMessage");
 let winnerMessageTxt = document.querySelector(".winnerMessageTxt");
+let scoreX = document.querySelector(".scoreX");
+let scoreO = document.querySelector(".scoreO");
 
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -9,7 +11,6 @@ document.addEventListener('DOMContentLoaded', () => {
     square.addEventListener('click', handleClick)
   })
 })
-
 
 function handleClick(event) {
   let square = event.target;
@@ -45,4 +46,13 @@ function checkDraw(element){
 
 function restart(){
   location.reload();
+}
+
+function updateScore(playerTime){
+  if(playerTime == 0){
+    scoreO.innerHTML = `<p>${scoreBoard.player1}</p>`;
+  } else{
+    scoreX.innerHTML = `<p>${scoreBoard.player2}</p>`;
+  }
+
 }
