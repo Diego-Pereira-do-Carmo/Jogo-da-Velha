@@ -1,16 +1,26 @@
 let winnerMessage = document.querySelector(".winnerMessage");
 let winnerMessageTxt = document.querySelector(".winnerMessageTxt");
-let scoreX = document.querySelector(".scoreX");
-let scoreO = document.querySelector(".scoreO");
+
 
 
 document.addEventListener('DOMContentLoaded', () => {
-  let squares = document.querySelectorAll(".square");
+  let squares = document.querySelectorAll(".square")
 
   squares.forEach((square) => {
     square.addEventListener('click', handleClick)
   })
+
+  let scoreX = document.querySelector(".scoreX");
+  let scoreO = document.querySelector(".scoreO");
+
+  scoreO.innerHTML = `<p>${scoreBoard.player1}</p>`;
+  scoreX.innerHTML = `<p>${scoreBoard.player2}</p>`;
+
+  let winnerMessage = document.querySelector(".winnerMessage");
+  let winnerMessageTxt = document.querySelector(".winnerMessageTxt");
+
 })
+
 
 function handleClick(event) {
   let square = event.target;
@@ -40,18 +50,21 @@ function draw() {
   }
 }
 
-function checkDraw(element){
+function checkDraw(element) {
   return element != '';
 }
 
-function restart(){
+function restart() {
   location.reload();
 }
 
-function updateScore(playerTime){
-  if(playerTime == 0){
+function updateScore(playerTime) {
+  let scoreX = document.querySelector(".scoreX");
+  let scoreO = document.querySelector(".scoreO");
+
+  if (playerTime == 0) {
     scoreO.innerHTML = `<p>${scoreBoard.player1}</p>`;
-  } else{
+  } else {
     scoreX.innerHTML = `<p>${scoreBoard.player2}</p>`;
   }
 

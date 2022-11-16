@@ -69,5 +69,5 @@ function scorePoint(isWin) {
     }
   }
   localStorage.setItem('score', JSON.stringify(scoreBoard));
-  console.log(scoreBoard);
+  console.log(scoreBoard)
 }
