@@ -13,9 +13,9 @@ let winStates = [
   [2, 4, 6],
 ]
 
-let scoreBoard = {
-  player1: '',
-  player2: ''
+let scoreBoard = JSON.parse(localStorage.getItem('score')) || {
+  player1: 0,
+  player2: 0
 };
 
 function handleMove(position) {
@@ -63,9 +63,11 @@ function isWin() {
 function scorePoint(isWin) {
   if (isWin() === true) {
     if (playerTime == 0) {
-      scoreBoard.player1 = scoreBoard.player1 + 1;
-    } else {
-      scoreBoard.player2 = scoreBoard.player2 + 1;
+      scoreBoard.player1 += 1;
+    } else {console.log("ponto inicial 2 " +scoreBoard.player2);
+      scoreBoard.player2 += 1;
     }
   }
+  localStorage.setItem('score', JSON.stringify(scoreBoard));
+  console.log(scoreBoard);
 }
