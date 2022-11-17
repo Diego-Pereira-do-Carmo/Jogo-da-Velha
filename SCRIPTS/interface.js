@@ -38,6 +38,10 @@ function handleClick(event) {
 function updateSquare(position) {
   let square = document.getElementById(position.toString());
   let symbol = board[position];
+  let soundHit = new Audio();
+  soundHit.src = "./sound/hit.wav"
+
+  soundHit.play();
   square.innerHTML = `<div class='${symbol}'></div>`
 }
 
@@ -84,11 +88,6 @@ function getWinnerSequence() {
       board[pos1] != '') {
 
       let squares = document.querySelectorAll(".square")
-
-
-      console.log("posição 1: " + pos1);
-      console.log("posição 2: " + pos2);
-      console.log("posição 3: " + pos3);
       
       squares[pos1].style.backgroundColor = 'yellow';
       squares[pos2].style.backgroundColor = 'yellow';
