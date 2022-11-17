@@ -21,20 +21,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
 })
 
-let choseX = document.querySelector(".choseX");
-let choseO = document.querySelector(".choseO");
-
-console.log(choseX);
-console.log(choseO);
-
-
-
-function choosePlayer(choosePlayer) {
-
-
-
-}
-
 
 function handleClick(event) {
   let square = event.target;
@@ -82,4 +68,31 @@ function updateScore(playerTime) {
     scoreX.innerHTML = `<p>${scoreBoard.player2}</p>`;
   }
 
+}
+
+function getWinnerSequence() {
+
+  for (let i = 0; i < winStates.length; i++) {
+    let seq = winStates[i];
+
+    let pos1 = seq[0];
+    let pos2 = seq[1];
+    let pos3 = seq[2];
+
+    if (board[pos1] == board[pos2] &&
+      board[pos1] == board[pos3] &&
+      board[pos1] != '') {
+
+      let squares = document.querySelectorAll(".square")
+
+
+      console.log("posição 1: " + pos1);
+      console.log("posição 2: " + pos2);
+      console.log("posição 3: " + pos3);
+      
+      squares[pos1].style.backgroundColor = 'yellow';
+      squares[pos2].style.backgroundColor = 'yellow';
+      squares[pos3].style.backgroundColor = 'yellow';
+    }
+  }
 }

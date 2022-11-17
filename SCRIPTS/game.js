@@ -55,6 +55,7 @@ function isWin() {
 
       return true;
     }
+    getWinnerSequence();
   }
 
   return false;
