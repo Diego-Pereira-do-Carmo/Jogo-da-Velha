@@ -28,10 +28,10 @@ function handleClick(event) {
   if (handleMove(position)) {
     if (playerTime == 0) {
       winnerMessage.style.display = "flex";
-      winnerMessageTxt.innerHTML = `<p class="winnnerMessageTxt">O Jogador &#x2B55; Foi o Vencedor</p>`;
+      winnerMessageTxt.innerHTML = `<p class="winnerMessageTxt">O Jogador &#x2B55; Foi o Vencedor</p>`;
     } else {
       winnerMessage.style.display = "flex";
-      winnerMessageTxt.innerHTML = `<p class="winnnerMessageTxt">O Jogador &#x274C; Foi o Vencedor</p>`;
+      winnerMessageTxt.innerHTML = `<p class="winnerMessageTxt">O Jogador &#x274C; Foi o Vencedor</p>`;
     }
   };
 
@@ -103,4 +103,19 @@ function getWinnerSequence() {
 function resetScoreboard() {
   localStorage.clear();
   location.reload();
+}
+
+
+function ShowPlayerTime() {
+  let scoreX = document.querySelector(".scoreX");
+  let scoreO = document.querySelector(".scoreO");
+
+  if (playerTime == 0) {
+    scoreO.style.backgroundColor = 'yellow';
+    scoreX.style.backgroundColor = 'rgb(190, 190, 190)';
+
+  } else {
+    scoreX.style.backgroundColor = 'yellow';
+    scoreO.style.backgroundColor = 'rgb(190, 190, 190)';
+  }
 }
