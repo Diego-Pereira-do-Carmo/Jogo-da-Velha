@@ -38,10 +38,10 @@ function handleClick(event) {
 function updateSquare(position) {
   let square = document.getElementById(position.toString());
   let symbol = board[position];
-  let soundHit = new Audio();
-  soundHit.src = "./sound/hit.wav"
+  // let soundHit = new Audio();
+  // soundHit.src = "./sound/hit.wav"
 
-  soundHit.play();
+  // soundHit.play();
   square.innerHTML = `<div class='${symbol}'></div>`
 }
 
@@ -54,15 +54,15 @@ function draw() {
   }
 }
 
-function checkDraw(element) {
-  return element != '';
+function checkDraw(square) {
+  return square != '';
 }
 
 function restart() {
   location.reload();
 }
 
-function updateScore(playerTime) {
+function updateScore() {
   let scoreX = document.querySelector(".scoreX");
   let scoreO = document.querySelector(".scoreO");
 
@@ -87,11 +87,16 @@ function getWinnerSequence() {
       board[pos1] == board[pos3] &&
       board[pos1] != '') {
 
-      let squares = document.querySelectorAll(".square")
+      let squares = document.querySelectorAll(".square");
       
       squares[pos1].style.backgroundColor = 'yellow';
       squares[pos2].style.backgroundColor = 'yellow';
       squares[pos3].style.backgroundColor = 'yellow';
     }
   }
+}
+
+function resetScoreboard() {
+  localStorage.clear();
+  location.reload();
 }

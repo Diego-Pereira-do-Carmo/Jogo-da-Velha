@@ -35,7 +35,7 @@ function handleMove(position) {
     }
   }
 
-  scorePoint(isWin);
+  scorePoint();
   updateScore(playerTime);
   return gameOver;
 }
@@ -53,15 +53,14 @@ function isWin() {
       board[pos1] == board[pos3] &&
       board[pos1] != '') {
 
+      getWinnerSequence();
       return true;
     }
-    getWinnerSequence();
   }
-
   return false;
 }
 
-function scorePoint(isWin) {
+function scorePoint() {
   if (isWin() === true) {
     if (playerTime == 0) {
       scoreBoard.player1 += 1;

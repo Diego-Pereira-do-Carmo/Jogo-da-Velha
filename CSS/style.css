@@ -59,10 +59,23 @@ body {
 
 }
 
-.choosePlayer{
-  display: flex;
-  justify-content: space-evenly;
+.resetScoreboard{
+  font-size: 1rem;
+  background-color: #1465bb;
+  color: #fff;
+  font-weight: bolder;
+  padding: 10px 15px;
+  cursor: pointer;
+  border-radius: 5px;
+  border: none;
   margin-top: 1rem;
+  box-shadow: 0 2px 10px rgb(0 0 0 / 20%);
+}
+
+.resetScoreboard:hover {
+  color: #1465bb;
+  background-color: #fff;
+  font-weight: bolder;
 }
 
 
@@ -163,5 +176,4 @@ body {
   color: #1465bb;
   background-color: #fff;
   font-weight: bolder;
-
 }
