@@ -33,30 +33,33 @@ body {
 }
 
 .scoreX{
+  display: flex;
+  line-height: 20px;
+  color:#1465bb;
+  font-weight: bolder;
   border: 2px solid #1465bb;
-  padding: 10px 50px;
+  padding: 10px 30px;
   border-radius: 50px;
-  /* position: relative; */
 }
 
 .scoreX::after {
-  /* position: absolute; */
   content: "\274C";
   font-size: 20px;
 }
 
 .scoreO{
+  display: flex;
+  color: #1465bb;
+  font-weight: bolder;
+  line-height: 20px;
   border: 2px solid #1465bb;
-  padding: 10px 50px;
+  padding: 10px 30px;
   border-radius: 50px;
-  /* position: relative; */
 }
 
 .scoreO::after {
-  /* position: absolute; */
   content: "\2B55";
   font-size: 20px;
-
 }
 
 .resetScoreboard{

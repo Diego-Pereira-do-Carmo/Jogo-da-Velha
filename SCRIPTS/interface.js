@@ -21,14 +21,18 @@ document.addEventListener('DOMContentLoaded', () => {
 
 })
 
-
 function handleClick(event) {
   let square = event.target;
   let position = square.id;
 
   if (handleMove(position)) {
-    winnerMessage.style.display = "flex";
-    winnerMessageTxt.innerHTML = `<p class="winnnerMessageTxt">O Jogador ${(playerTime + 1)} Foi o Vencedor</p>`;
+    if (playerTime == 0) {
+      winnerMessage.style.display = "flex";
+      winnerMessageTxt.innerHTML = `<p class="winnnerMessageTxt">O Jogador &#x2B55; Foi o Vencedor</p>`;
+    } else {
+      winnerMessage.style.display = "flex";
+      winnerMessageTxt.innerHTML = `<p class="winnnerMessageTxt">O Jogador &#x274C; Foi o Vencedor</p>`;
+    }
   };
 
   updateSquare(position);
@@ -88,7 +92,7 @@ function getWinnerSequence() {
       board[pos1] != '') {
 
       let squares = document.querySelectorAll(".square");
-      
+
       squares[pos1].style.backgroundColor = 'yellow';
       squares[pos2].style.backgroundColor = 'yellow';
       squares[pos3].style.backgroundColor = 'yellow';
