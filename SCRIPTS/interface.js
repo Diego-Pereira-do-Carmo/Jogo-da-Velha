@@ -1,7 +1,9 @@
 let winnerMessage = document.querySelector(".winnerMessage");
 let winnerMessageTxt = document.querySelector(".winnerMessageTxt");
-
-
+let head = document.querySelector(".head");
+let main = document.querySelector(".main");
+let choses = document.querySelectorAll(".btnOption");
+let option = document.querySelector(".option");
 
 document.addEventListener('DOMContentLoaded', () => {
   let squares = document.querySelectorAll(".square")
@@ -34,7 +36,7 @@ function handleClick(event) {
       winnerMessageTxt.innerHTML = `<p class="winnerMessageTxt">O Jogador &#x274C; Foi o Vencedor</p>`;
     }
   };
-
+  ShowPlayerTime();
   updateSquare(position);
   draw();
 }
@@ -75,7 +77,6 @@ function updateScore() {
   } else {
     scoreX.innerHTML = `<p>${scoreBoard.player2}</p>`;
   }
-
 }
 
 function getWinnerSequence() {
@@ -107,15 +108,30 @@ function resetScoreboard() {
 
 
 function ShowPlayerTime() {
-  let scoreX = document.querySelector(".scoreX");
-  let scoreO = document.querySelector(".scoreO");
 
-  if (playerTime == 0) {
-    scoreO.style.backgroundColor = 'yellow';
-    scoreX.style.backgroundColor = 'rgb(190, 190, 190)';
+    let scoreX = document.querySelector(".scoreX");
+    let scoreO = document.querySelector(".scoreO");
 
+    if (playerTime == 0) {
+      scoreO.style.backgroundColor = 'yellow';
+      scoreX.style.backgroundColor = 'rgb(190, 190, 190)';
+
+    } else {
+      scoreX.style.backgroundColor = 'yellow';
+      scoreO.style.backgroundColor = 'rgb(190, 190, 190)';
+    }
+}
+
+function chosePlayer(event) {
+  let choose = event.target;
+
+  if (choose.id == "choseO") {
+    playerTime = 0;
   } else {
-    scoreX.style.backgroundColor = 'yellow';
-    scoreO.style.backgroundColor = 'rgb(190, 190, 190)';
+    playerTime = 1;
   }
+  console.log(playerTime);
+  option.style.display = "none";
+  main.style.display = "block";
+  ShowPlayerTime();
 }

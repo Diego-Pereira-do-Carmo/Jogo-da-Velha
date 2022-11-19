@@ -12,8 +12,19 @@
 
 <body>
 
-  <main>
-    <H1>JOGO DA VELHA</H1>
+  <head class="head">
+    <div class="option">
+      <h2>Jogo da Velha</h2>
+      <p>Com Qual Quer Jogar?</p>
+      <div class="containerOption">
+        <button id="choseO" class="btnOption" onclick="chosePlayer(event)">Jogador &#x2B55;?</button>
+        <button id="choseX" class="btnOption" onclick="chosePlayer(event)">Jogador &#x274C;?</button>
+      </div>
+    </div>
+  </head>
+
+
+  <main class="main" style="display: none;">
     <div class="scores">
       <h2>Placar</h2>
       <div class="containerScores">
@@ -50,7 +61,6 @@
       <button class="restartBtn" onclick="restart()">Novo Jogo?</button>
 
     </div>
-
   </main>
 
 

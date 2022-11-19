@@ -19,7 +19,6 @@ let scoreBoard = JSON.parse(localStorage.getItem('score')) || {
 };
 
 function handleMove(position) {
-
   if (gameOver) {
     return;
   }
@@ -34,7 +33,7 @@ function handleMove(position) {
       playerTime = (playerTime == 0) ? 1 : 0;
     }
   }
-  ShowPlayerTime ();
+
   scorePoint();
   updateScore(playerTime);
   return gameOver;
