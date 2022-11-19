@@ -36,27 +36,34 @@ function handleClick(event) {
       winnerMessageTxt.innerHTML = `<p class="winnerMessageTxt">O Jogador &#x274C; Foi o Vencedor</p>`;
     }
   };
+
+  draw();
   ShowPlayerTime();
   updateSquare(position);
-  draw();
 }
 
 function updateSquare(position) {
   let square = document.getElementById(position.toString());
   let symbol = board[position];
-  // let soundHit = new Audio();
-  // soundHit.src = "./sound/hit.wav"
 
-  // soundHit.play();
+  let soundClick = new Audio();
+  soundClick.src = "./sound/click.mp3"
+  soundClick.play();
+
   square.innerHTML = `<div class='${symbol}'></div>`
 }
 
 function draw() {
   let drawStates = board.every(checkDraw);
+  let soundDraw = new Audio();
+  soundDraw.src = "./sound/draw.wav";
 
   if (drawStates == true) {
     winnerMessage.style.display = "flex";
     winnerMessageTxt.innerHTML = `<p class="winnnerMessageTxt">Deu Empate!</p>`;
+    setTimeout(() => {
+      soundDraw.play();
+    }, 300);
   }
 }
 
@@ -80,6 +87,8 @@ function updateScore() {
 }
 
 function getWinnerSequence() {
+  let soundWinner = new Audio();
+  soundWinner.src = "./sound/winner.wav";
 
   for (let i = 0; i < winStates.length; i++) {
     let seq = winStates[i];
@@ -99,6 +108,9 @@ function getWinnerSequence() {
       squares[pos3].style.backgroundColor = 'yellow';
     }
   }
+  setTimeout(() => {
+    soundWinner.play();
+  }, 100);
 }
 
 function resetScoreboard() {
@@ -109,17 +121,17 @@ function resetScoreboard() {
 
 function ShowPlayerTime() {
 
-    let scoreX = document.querySelector(".scoreX");
-    let scoreO = document.querySelector(".scoreO");
+  let scoreX = document.querySelector(".scoreX");
+  let scoreO = document.querySelector(".scoreO");
 
-    if (playerTime == 0) {
-      scoreO.style.backgroundColor = 'yellow';
-      scoreX.style.backgroundColor = 'rgb(190, 190, 190)';
+  if (playerTime == 0) {
+    scoreO.style.backgroundColor = 'yellow';
+    scoreX.style.backgroundColor = 'rgb(190, 190, 190)';
 
-    } else {
-      scoreX.style.backgroundColor = 'yellow';
-      scoreO.style.backgroundColor = 'rgb(190, 190, 190)';
-    }
+  } else {
+    scoreX.style.backgroundColor = 'yellow';
+    scoreO.style.backgroundColor = 'rgb(190, 190, 190)';
+  }
 }
 
 function chosePlayer(event) {
