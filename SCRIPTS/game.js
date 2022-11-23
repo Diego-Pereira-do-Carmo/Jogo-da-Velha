@@ -35,7 +35,7 @@ function handleMove(position) {
   }
 
   scorePoint();
-  updateScore(playerTime);
+  updateScore();
   return gameOver;
 }
 

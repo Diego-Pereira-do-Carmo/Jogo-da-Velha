@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
 
 <head>
   <meta charset="UTF-8">
@@ -12,10 +12,10 @@
 
 <body>
 
-  <head class="head">
+  <head>
     <div class="option">
-      <h2>Jogo da Velha</h2>
-      <p>Com Qual Quer Jogar?</p>
+      <h2># Jogo da Velha #</h2>
+      <p>Quem Vai Começar?</p>
       <div class="containerOption">
         <button id="choseO" class="btnOption" onclick="chosePlayer(event)">Jogador &#x2B55;?</button>
         <button id="choseX" class="btnOption" onclick="chosePlayer(event)">Jogador &#x274C;?</button>
@@ -24,12 +24,13 @@
   </head>
 
 
-  <main class="main" style="display: none;">
+  <main class="containerMain" style="display: none;">
+   
     <div class="scores">
       <h2>Placar</h2>
       <div class="containerScores">
-        <div class="scoreO"></div>
-        <div class="scoreX"></div>
+        <div class="scoreO scoreStyle"></div>
+        <div class="scoreX scoreStyle"></div>
       </div>
       <button class="resetScoreboard" onclick="resetScoreboard()">Zerar Placar</button>
     </div>

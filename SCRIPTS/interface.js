@@ -1,7 +1,6 @@
 let winnerMessage = document.querySelector(".winnerMessage");
 let winnerMessageTxt = document.querySelector(".winnerMessageTxt");
-let head = document.querySelector(".head");
-let main = document.querySelector(".main");
+let containerMain = document.querySelector(".containerMain");
 let choses = document.querySelectorAll(".btnOption");
 let option = document.querySelector(".option");
 
@@ -58,12 +57,10 @@ function draw() {
   let soundDraw = new Audio();
   soundDraw.src = "./sound/draw.wav";
 
-  if (drawStates == true) {
+  if (drawStates == true && gameOver == false) {
     winnerMessage.style.display = "flex";
     winnerMessageTxt.innerHTML = `<p class="winnnerMessageTxt">Deu Empate!</p>`;
-    setTimeout(() => {
-      soundDraw.play();
-    }, 300);
+    soundDraw.play(); 
   }
 }
 
@@ -72,7 +69,14 @@ function checkDraw(square) {
 }
 
 function restart() {
-  location.reload();
+  let soundClick = new Audio();
+  soundClick.src = "./sound/click.mp3"
+  soundClick.play();
+
+  setTimeout(()=>{
+    location.reload();
+  }, 300);
+  
 }
 
 function updateScore() {
@@ -103,19 +107,22 @@ function getWinnerSequence() {
 
       let squares = document.querySelectorAll(".square");
 
-      squares[pos1].style.backgroundColor = 'yellow';
-      squares[pos2].style.backgroundColor = 'yellow';
-      squares[pos3].style.backgroundColor = 'yellow';
+      squares[pos1].style.backgroundColor = '#f8fb5d';
+      squares[pos2].style.backgroundColor = '#f8fb5d';
+      squares[pos3].style.backgroundColor = '#f8fb5d';
     }
   }
-  setTimeout(() => {
-    soundWinner.play();
-  }, 100);
+  soundWinner.play();
 }
 
 function resetScoreboard() {
-  localStorage.clear();
-  location.reload();
+  let soundClick = new Audio();
+  soundClick.src = "./sound/click.mp3"
+  soundClick.play();
+  setTimeout(() => {
+    localStorage.clear();
+    location.reload();
+  }, 300);
 }
 
 
@@ -125,25 +132,27 @@ function ShowPlayerTime() {
   let scoreO = document.querySelector(".scoreO");
 
   if (playerTime == 0) {
-    scoreO.style.backgroundColor = 'yellow';
+    scoreO.style.backgroundColor = '#f8fb5d';
     scoreX.style.backgroundColor = 'rgb(190, 190, 190)';
 
   } else {
-    scoreX.style.backgroundColor = 'yellow';
+    scoreX.style.backgroundColor = '#f8fb5d';
     scoreO.style.backgroundColor = 'rgb(190, 190, 190)';
   }
 }
 
 function chosePlayer(event) {
   let choose = event.target;
+  let soundClick = new Audio();
+  soundClick.src = "./sound/click.mp3"
 
   if (choose.id == "choseO") {
     playerTime = 0;
   } else {
     playerTime = 1;
   }
-  console.log(playerTime);
   option.style.display = "none";
-  main.style.display = "block";
+  containerMain.style.display = "block";
+  soundClick.play();
   ShowPlayerTime();
 }
