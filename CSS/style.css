@@ -188,3 +188,54 @@ body {
   background-color: #fff;
   font-weight: bolder;
 }
+
+@media screen and (max-width: 700px){
+  
+  .option h2 {
+    font-size: 2.5rem;
+    margin-top: 2rem;
+  }
+
+  .option p {
+    font-size: 2rem;
+    margin-top: 2rem;
+  }
+
+  .btnOption{
+    font-size: 1.5rem;
+    padding: 15px 20px;
+  }
+
+}
+
+@media screen and (max-width: 550px){
+
+  .option h2 {
+    font-size: 2rem;
+    margin-top: 2rem;
+  }
+
+  .option p {
+    font-size: 1.5rem;
+    margin-top: 2rem;
+  }
+  
+  .containerOption{
+    width: 100%;
+    align-items: center;
+    flex-direction: column;
+  }
+
+  .btnOption{
+    margin-bottom: 1.5rem;
+  }
+}
+
+@media screen and (max-width: 410px){
+
+  .square {
+    width: 6rem;
+    height: 6rem;
+  }
+
+}
